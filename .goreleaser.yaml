@@ -109,7 +109,7 @@ release:
 # Requires HOMEBREW_TAP_TOKEN — a PAT with `contents:write` on
 # felixgeelhaar/homebrew-tap — exposed to the goreleaser step in
 # .github/workflows/release.yml.
-brews:
+homebrew_casks:
   - name: scry
     # Skip the brew formula push when HOMEBREW_TAP_TOKEN isn't
     # configured (first release before the operator wires the PAT).
@@ -119,7 +119,6 @@ brews:
       owner: klarlabs-studio
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
-    directory: Formula
     homepage: "https://github.com/felixgeelhaar/scry"
     description: "Searchable GraphQL ↔ MCP bridge for AI agents"
     license: "Apache-2.0"
@@ -127,7 +126,3 @@ brews:
       name: github-actions
       email: github-actions@github.com
     commit_msg_template: "scry {{ .Tag }}"
-    install: |
-      bin.install "scry"
-    test: |
-      system "#{bin}/scry", "version"
