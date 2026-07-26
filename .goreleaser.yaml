@@ -116,7 +116,7 @@ brews:
     # Keeps `goreleaser release` from failing on a missing secret.
     skip_upload: '{{ if eq (envOrDefault "HOMEBREW_TAP_TOKEN" "") "" }}true{{ else }}false{{ end }}'
     repository:
-      owner: felixgeelhaar
+      owner: klarlabs-studio
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
     directory: Formula
